@@ -1,14 +1,14 @@
-# PulsoFit - Caso Práctico 1
+# Caso Práctico 1
 
 Aplicación web para la gestión de un Gimnasio / Centro Fitness, desarrollada con Spring Boot, Spring Data JPA, Thymeleaf y MySQL.
 
 ## Funcionalidades
 
-- Gestión de Categorías de Entrenamiento (CRUD completo).
-- Gestión de Clases de Entrenamiento (CRUD completo, relacionadas con una Categoría).
-- Gestión de Reservas de Clases (CRUD completo, relacionadas con una Clase).
-- Formulario de Quejas y Sugerencias (solo interfaz, sin conexión a base de datos).
-- Página de inicio promocional con una clase destacada (CrossFit) y un video embebido mediante `<iframe>`.
+  Gestión de Categorías de Entrenamiento (CRUD completo).
+  Gestión de Clases de Entrenamiento (CRUD completo, relacionadas con una Categoría).
+  Gestión de Reservas de Clases (CRUD completo, relacionadas con una Clase).
+  Formulario de Quejas y Sugerencias (solo interfaz, sin conexión a base de datos).
+  Página de inicio promocional con una clase destacada (CrossFit) y un video embebido mediante `<iframe>`.
 
 ## Tecnologías
 
@@ -43,22 +43,13 @@ spring.datasource.username=usuario_caso_practico_01
 spring.datasource.password=123456
 ```
 
-## Ejecución
-
+ Ejecución:
 La aplicación está configurada para correr en el **puerto 47**.
-
-```
 mvn spring-boot:run
-```
 
 Luego abrir: `http://localhost:47/`
 
-## Rutas principales
-
-| Ruta            | Descripción                          |
-|-----------------|---------------------------------------|
-| `/`             | Página de inicio promocional          |
-| `/categorias`   | Listado y CRUD de categorías          |
-| `/servicios`    | Listado y CRUD de clases               |
-| `/reservas`     | Listado y CRUD de reservas             |
-| `/contacto`     | Formulario de quejas y sugerencias     |
+categorias: Listado y CRUD de categorías   
+servicios:Listado y CRUD de clases          
+reservas:Listado y CRUD de reservas       
+contacto:Formulario de quejas y sugerencias  
