@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Inicio')}"></head>
+<body>
+
+<div th:replace="~{layout :: header}"></div>
+
+<section class="hero">
+    <h1>ENTRENA SIN <span>LÍMITES</span></h1>
+    <p class="subtitulo">
+        En PulsoFit combinamos entrenamiento funcional, fuerza y cardio para que alcances
+        tu mejor versión. Reserva tu clase y empieza hoy.
+    </p>
+    <a class="btn" th:href="@{/servicios}">Ver Clases Disponibles</a>
+</section>
+
+<section class="destacado">
+    <div class="contenedor destacado-grid">
+        <div class="destacado-info">
+            <p class="etiqueta">Clase Destacada</p>
+            <h2>CrossFit</h2>
+            <p>
+                Nuestra clase de CrossFit combina movimientos funcionales de alta intensidad
+                para mejorar tu fuerza, resistencia y agilidad en cada sesión. Ideal para quienes
+                buscan un reto constante y resultados visibles desde las primeras semanas.
+            </p>
+            <a class="btn" th:href="@{/reservas/nueva}">Reservar Esta Clase</a>
+        </div>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/EobtAHpsZmM"
+                    title="Rutina de entrenamiento CrossFit"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<section class="contenedor">
+    <h2>Nuestras Categorías</h2>
+    <div class="linea-acento"></div>
+    <div class="grid-tarjetas">
+        <div class="tarjeta">
+            <h3>Entrenamiento Funcional</h3>
+            <p>Movimientos naturales que mejoran tu fuerza y coordinación.</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Cardio</h3>
+            <p>Rutinas dinámicas para mejorar tu resistencia cardiovascular.</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Fuerza</h3>
+            <p>Entrenamiento con pesas para ganar masa muscular y potencia.</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Flexibilidad</h3>
+            <p>Yoga y pilates para mejorar tu movilidad y equilibrio.</p>
+        </div>
+    </div>
+</section>
+
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

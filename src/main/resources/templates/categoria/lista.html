@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Categorías')}"></head>
+<body>
+
+<div th:replace="~{layout :: header}"></div>
+
+<section class="contenedor">
+    <div class="cabecera-seccion">
+        <div>
+            <h2>Categorías de Entrenamiento</h2>
+            <div class="linea-acento"></div>
+        </div>
+        <a class="btn" th:href="@{/categorias/nueva}">Nueva Categoría</a>
+    </div>
+
+    <div class="tabla-wrapper" th:if="${not #lists.isEmpty(categorias)}">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="categoria : ${categorias}">
+                <td th:text="${categoria.id}"></td>
+                <td th:text="${categoria.nombre}"></td>
+                <td class="acciones-tabla">
+                    <a class="editar" th:href="@{/categorias/editar/{id}(id=${categoria.id})}">Editar</a>
+                    <a class="eliminar" th:href="@{/categorias/eliminar/{id}(id=${categoria.id})}">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="vacio" th:if="${#lists.isEmpty(categorias)}">
+        <p>No hay categorías registradas todavía.</p>
+    </div>
+</section>
+
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

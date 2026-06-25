@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Clases')}"></head>
+<body>
+
+<div th:replace="~{layout :: header}"></div>
+
+<section class="contenedor">
+    <div class="cabecera-seccion">
+        <div>
+            <h2>Clases de Entrenamiento</h2>
+            <div class="linea-acento"></div>
+        </div>
+        <a class="btn" th:href="@{/servicios/nuevo}">Nueva Clase</a>
+    </div>
+
+    <div class="grid-tarjetas" th:if="${not #lists.isEmpty(servicios)}">
+        <div class="tarjeta" th:each="servicio : ${servicios}">
+            <span class="categoria-tag" th:text="${servicio.categoria.nombre}"></span>
+            <h3 th:text="${servicio.nombre}"></h3>
+            <p class="precio" th:text="'₡' + ${servicio.precio}"></p>
+            <div class="tarjeta-acciones">
+                <a class="editar" th:href="@{/servicios/editar/{id}(id=${servicio.id})}">Editar</a>
+                <a class="eliminar" th:href="@{/servicios/eliminar/{id}(id=${servicio.id})}">Eliminar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="vacio" th:if="${#lists.isEmpty(servicios)}">
+        <p>No hay clases registradas todavía.</p>
+    </div>
+</section>
+
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

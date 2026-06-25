@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Reserva')}"></head>
+<body>
+
+<div th:replace="~{layout :: header}"></div>
+
+<section class="contenedor">
+    <h2 th:text="${reserva.id == null} ? 'Nueva Reserva' : 'Editar Reserva'"></h2>
+    <div class="linea-acento"></div>
+
+    <div class="form-card">
+        <form th:action="@{/reservas/guardar}" th:object="${reserva}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <div class="campo">
+                <label for="nombreCliente">Nombre del Cliente</label>
+                <input type="text" id="nombreCliente" th:field="*{nombreCliente}" placeholder="Ej: Ana Rodríguez" required>
+            </div>
+            <div class="campo">
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" th:field="*{fecha}" required>
+            </div>
+            <div class="campo">
+                <label for="servicio">Clase</label>
+                <select id="servicio" th:field="*{servicio}" required>
+                    <option value="">Seleccione una clase</option>
+                    <option th:each="servicio : ${servicios}"
+                            th:value="${servicio.id}"
+                            th:text="${servicio.nombre}"></option>
+                </select>
+            </div>
+            <div class="form-acciones">
+                <button type="submit" class="btn">Guardar</button>
+                <a class="btn btn-secundario" th:href="@{/reservas}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

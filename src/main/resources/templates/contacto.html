@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Contacto')}"></head>
+<body>
+
+<div th:replace="~{layout :: header}"></div>
+
+<section class="contenedor">
+    <h2>Quejas y Sugerencias</h2>
+    <div class="linea-acento"></div>
+    <p style="color: var(--gris-texto); max-width: 560px; margin-bottom: 32px;">
+        Tu opinión nos ayuda a mejorar. Cuéntanos cualquier consulta, queja o sugerencia
+        y nuestro equipo la revisará a la brevedad.
+    </p>
+
+    <div class="form-card">
+        <form>
+            <div class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+            </div>
+            <div class="campo">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+            </div>
+            <div class="campo">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta, queja o sugerencia" required></textarea>
+            </div>
+            <div class="form-acciones">
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

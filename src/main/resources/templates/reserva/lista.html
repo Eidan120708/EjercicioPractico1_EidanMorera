@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Reservas')}"></head>
+<body>
+
+<div th:replace="~{layout :: header}"></div>
+
+<section class="contenedor">
+    <div class="cabecera-seccion">
+        <div>
+            <h2>Reservas de Clases</h2>
+            <div class="linea-acento"></div>
+        </div>
+        <a class="btn" th:href="@{/reservas/nueva}">Nueva Reserva</a>
+    </div>
+
+    <div class="tabla-wrapper" th:if="${not #lists.isEmpty(reservas)}">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Clase</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reserva : ${reservas}">
+                <td th:text="${reserva.id}"></td>
+                <td th:text="${reserva.nombreCliente}"></td>
+                <td th:text="${reserva.fecha}"></td>
+                <td th:text="${reserva.servicio.nombre}"></td>
+                <td class="acciones-tabla">
+                    <a class="editar" th:href="@{/reservas/editar/{id}(id=${reserva.id})}">Editar</a>
+                    <a class="eliminar" th:href="@{/reservas/eliminar/{id}(id=${reserva.id})}">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="vacio" th:if="${#lists.isEmpty(reservas)}">
+        <p>No hay reservas registradas todavía.</p>
+    </div>
+</section>
+
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>
